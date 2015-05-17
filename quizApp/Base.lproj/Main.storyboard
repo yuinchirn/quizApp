@@ -70,7 +70,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rF-AG-woP">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2rF-AG-woP">
                                 <rect key="frame" x="16" y="20" width="568" height="200"/>
                                 <color key="backgroundColor" red="0.49411764705882355" green="0.57647058823529407" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -90,7 +90,7 @@
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIN-4z-gBO">
                                         <rect key="frame" x="204" y="0.0" width="160" height="130"/>
-                                        <color key="backgroundColor" red="0.94509803921568625" green="0.46274509803921571" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95686274509803926" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="D1G-zn-BX1"/>
                                             <constraint firstAttribute="height" constant="130" id="lN7-HU-2Ml"/>
@@ -229,6 +229,13 @@
                             <constraint firstItem="6Vd-mb-zOK" firstAttribute="leading" secondItem="oaN-3k-qTi" secondAttribute="leadingMargin" id="oMm-G1-afc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="answerButton1" destination="ZIN-4z-gBO" id="BAy-pl-HwB"/>
+                        <outlet property="answerButton2" destination="qTd-UD-iQ9" id="0SN-yG-uQE"/>
+                        <outlet property="answerButton3" destination="Mfv-Wt-HOU" id="boG-8v-5Gy"/>
+                        <outlet property="answerButton4" destination="626-ne-9Nj" id="PCu-ec-JME"/>
+                        <outlet property="questionLabel" destination="2rF-AG-woP" id="lfy-oo-2dg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSG-Ci-kIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
