@@ -21,11 +21,11 @@ class QuizViewController: QuizCommonViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inititialize()
+        initialize()
     }
     
-    override func inititialize() {
-        super.inititialize()
+    override func initialize() {
+        super.initialize()
         setQuestion()
         setAlertController()
     }
