@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class QuizViewController: UIViewController {
+class QuizViewController: QuizCommonViewController {
 
     /* UI関連 */
     @IBOutlet weak var questionLabel: UILabel!
@@ -19,36 +19,15 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var answerButton4: UIButton!
     var resultAlertController = UIAlertController()
     
-    /* DB関連 */
-    var realm = Realm()
-    var questionList:Results<Question>?
-    
-    let questionTextKey = "questionText"
-    let choice1Key = "choice1"
-    let choice2Key = "choice2"
-    let choice3Key = "choice3"
-    let choice4Key = "choice4"
-    
-    /* その他 */
-    var progress = 0 // 現在の問題の番号を示すInt
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         inititialize()
     }
     
-    /* 各種初期処理を行う */
-    func inititialize(){
-        setDatabase()
+    override func inititialize() {
+        super.inititialize()
         setQuestion()
         setAlertController()
-    }
-    
-    /* データの設定 */
-    func setDatabase(){
-        // TODO DBが存在しないにDBを配置、存在しない場合に初期DBを作成する処理
-        realm = Realm()
-        questionList = realm.objects(Question)
     }
     
     func setQuestion(){
@@ -67,8 +46,7 @@ class QuizViewController: UIViewController {
         let nextAction = UIAlertAction(title: "Next", style: .Default) { action in
             self.progress++
             if self.progress >= self.questionList?.count {
-                println("終わり")
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.performSegueWithIdentifier(self.showResultSegue,sender: nil)
                 return
             }
             self.setQuestion()
@@ -103,5 +81,12 @@ class QuizViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == showResultSegue) {
+            // ResultViewControllerクラスをインスタンス化してsegue（画面遷移）で値を渡せるようにバンドルする
+            var resultView : ResultViewController = segue.destinationViewController as! ResultViewController
+        }
     }
 }
